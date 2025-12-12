@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do App</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .task-box { margin: 8px 0; padding: 10px; background: #f2f2f2; border-radius: 6px; }
+        a { color: red; margin-left: 15px; }
+    </style>
+</head>
+<body>
+
+    <h1>My To-Do List</h1>
+
+    <form method="POST">
+        <input type="text" name="task" placeholder="Enter task" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>Tasks:</h2>
+
+    {% for t in tasks %}
+        <div class="task-box">
+            {{ loop.index }}. {{ t.task }}
+            <a href="/delete/{{ loop.index0 }}">Delete</a>
+        </div>
+    {% endfor %}
+
+</body>
+</html>
